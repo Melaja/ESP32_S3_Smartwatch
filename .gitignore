@@ -1,0 +1,19 @@
+# Build artifacts
+build/
+*.o
+*.elf
+*.bin
+*.hex
+
+# IDE
+.vscode/
+*.code-workspace
+
+# System
+.DS_Store
+Thumbs.db
+
+# Secrets
+*.key
+key.txt
+wifi_credentials.h

@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(findstr:*)",
+      "Bash(dir /b \"C:\\\\Users\\\\Jack\\\\Documents\\\\SquareLine\\\\ESP32_S3_Smartwatch\\\\nieuw\\\\ui_*.c\")",
+      "Bash(xcopy:*)",
+      "Bash(cmd /c:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(gh auth login:*)",
+      "Bash(git config:*)",
+      "Bash(printf \"https://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@github.com\")",
+      "Bash(~/.git-credentials)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}
