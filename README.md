@@ -1,77 +1,77 @@
 # ESP32-S3 Smartwatch
 
-Een complete smartwatch applicatie voor de Waveshare ESP32-S3 Touch AMOLED 2.06 inch display module.
+A complete smartwatch application for the Waveshare ESP32-S3 Touch AMOLED 2.06 inch display module.
 
-**Versie:** 2.3.1
-**Auteur:** JWP van Renen
-**Datum:** 31 januari 2026
+**Version:** 2.3.1
+**Author:** JWP van Renen
+**Date:** January 31, 2026
 
 ## Hardware
 
-| Component | Type | Specificaties |
-|-----------|------|---------------|
+| Component | Type | Specifications |
+|-----------|------|----------------|
 | Microcontroller | ESP32-S3 | Dual-core 240MHz, 8MB PSRAM, 16MB Flash |
 | Display | CO5300 AMOLED | 410 x 502 pixels, 16-bit RGB565, QSPI |
-| Touch | FT3168 | Capacitief multi-touch, I2C @ 0x38 |
-| Power | AXP2101 | Li-Ion/Li-Po laden, batterij monitoring |
-| Audio | ES8311 | I2S codec met speaker en microfoon |
-| RTC | PCF85063 | Real-time clock met backup |
-| Opslag | SD kaart | 1-bit SDMMC interface |
+| Touch | FT3168 | Capacitive multi-touch, I2C @ 0x38 |
+| Power | AXP2101 | Li-Ion/Li-Po charging, battery monitoring |
+| Audio | ES8311 | I2S codec with speaker and microphone |
+| RTC | PCF85063 | Real-time clock with backup |
+| Storage | SD card | 1-bit SDMMC interface |
 
-## Functionaliteiten
+## Features
 
-### Scherm 1 - Klok
-- Digitale tijdweergave (uren:minuten:seconden)
-- Datum met dagnaam in het Nederlands
-- Automatische NTP synchronisatie
-- Tijdzone: Europa/Brussel (CET/CEST)
+### Screen 1 - Clock
+- Digital time display (hours:minutes:seconds)
+- Date with day name in Dutch
+- Automatic NTP synchronization
+- Timezone: Europe/Brussels (CET/CEST)
 
-### Scherm 2 - Stappenteller
-- Stappen tellen met pauze/hervat (tik)
-- Reset naar 0 (lang drukken >1 sec)
+### Screen 2 - Step Counter
+- Step counting with pause/resume (tap)
+- Reset to 0 (long press >1 sec)
 
-### Scherm 3 - Instellingen
-- Helderheidsregeling (0-255)
-- Batterijpercentage met kleurcodering
-- WiFi verbindingsstatus
+### Screen 3 - Settings
+- Brightness control (0-255)
+- Battery percentage with color coding
+- WiFi connection status
 
-### Scherm 4 - Bestanden
-- SD kaart browser
-- Ondersteunde formaten:
-  - Afbeeldingen: JPG, PNG, GIF, BMP
+### Screen 4 - Files
+- SD card browser
+- Supported formats:
+  - Images: JPG, PNG, GIF, BMP
   - Audio: MP3, WAV, OGG, FLAC
-  - Tekst: TXT, LOG, CSV
+  - Text: TXT, LOG, CSV
 
-## Navigatie
+## Navigation
 
-| Actie | Functie |
-|-------|---------|
-| Swipe links | Volgend scherm |
-| Swipe rechts | Vorig scherm |
-| Tik | Selecteren / Openen |
-| Lang drukken | Context actie |
+| Action | Function |
+|--------|----------|
+| Swipe left | Next screen |
+| Swipe right | Previous screen |
+| Tap | Select / Open |
+| Long press | Context action |
 
-### In bestandsviewer
-| Actie | Functie |
-|-------|---------|
-| Swipe omhoog/omlaag | Vorig/volgend bestand |
-| Swipe links/rechts | Volume (alleen audio) |
-| Lang drukken (3 sec) | Terug naar lijst |
+### In File Viewer
+| Action | Function |
+|--------|----------|
+| Swipe up/down | Previous/next file |
+| Swipe left/right | Volume (audio only) |
+| Long press (3 sec) | Back to list |
 
-## Energiebesparing
+## Power Saving
 
-| Status | Helderheid | Activatie |
-|--------|------------|-----------|
-| Actief | 200 | Na touch |
-| Gedimd | 50 | Na 15 sec inactiviteit |
-| Slaap | 0 | Na 30 sec inactiviteit |
+| State | Brightness | Activation |
+|-------|------------|------------|
+| Active | 200 | After touch |
+| Dimmed | 50 | After 15 sec inactivity |
+| Sleep | 0 | After 30 sec inactivity |
 
-## Compilatie
+## Compilation
 
-### Arduino IDE Instellingen
+### Arduino IDE Settings
 
-| Instelling | Waarde |
-|------------|--------|
+| Setting | Value |
+|---------|-------|
 | Board | ESP32S3 Dev Module |
 | CPU Frequency | 240MHz (WiFi) |
 | Flash Mode | QIO 80MHz |
@@ -81,7 +81,7 @@ Een complete smartwatch applicatie voor de Waveshare ESP32-S3 Touch AMOLED 2.06 
 | Upload Speed | 921600 |
 | USB Mode | Hardware CDC and JTAG |
 
-### Vereiste Libraries
+### Required Libraries
 
 - LVGL (v9.3.0)
 - Arduino_GFX_Library
@@ -89,29 +89,29 @@ Een complete smartwatch applicatie voor de Waveshare ESP32-S3 Touch AMOLED 2.06 
 - XPowersLib
 - ESP32-audioI2S
 
-## Configuratie
+## Configuration
 
 ### WiFi
-Pas `wifi_config.h` aan met je netwerkinstellingen:
+Edit `wifi_config.h` with your network settings:
 ```c
-#define WIFI_SSID "jouw_ssid"
-#define WIFI_PASSWORD "jouw_wachtwoord"
+#define WIFI_SSID "your_ssid"
+#define WIFI_PASSWORD "your_password"
 ```
 
-### Pin Configuratie
-Zie `pin_config.h` voor alle hardware pin definities.
+### Pin Configuration
+See `pin_config.h` for all hardware pin definitions.
 
-## Projectstructuur
+## Project Structure
 
 ```
 nieuw/
-├── nieuw.ino           # Hoofdprogramma
-├── pin_config.h        # Hardware pin definities
-├── wifi_config.h       # WiFi instellingen
-├── lv_conf.h           # LVGL configuratie
-├── ui.h/c              # UI initialisatie
-├── ui_*.h/c            # Scherm definities (SquareLine Studio)
-└── libraries/          # Externe libraries
+├── nieuw.ino           # Main program
+├── pin_config.h        # Hardware pin definitions
+├── wifi_config.h       # WiFi settings
+├── lv_conf.h           # LVGL configuration
+├── ui.h/c              # UI initialization
+├── ui_*.h/c            # Screen definitions (SquareLine Studio)
+└── libraries/          # External libraries
     ├── AnimatedGIF/
     ├── ESP32-audioI2S-master/
     ├── GFX_Library_for_Arduino/
@@ -121,6 +121,6 @@ nieuw/
     └── XPowersLib/
 ```
 
-## Licentie
+## License
 
 Copyright (c) 2026 JWP van Renen
